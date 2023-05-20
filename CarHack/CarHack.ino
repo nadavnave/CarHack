@@ -1,7 +1,7 @@
 #define CODE_SUCSSES    0
 #define CODE_ERROR      1
 
-#define DATA_LEN        30
+#define DATA_LEN        52
 
 #define DATA_PIN        28  // B0 pin
 
@@ -125,6 +125,8 @@ int transmit() {
       digitalWrite(DATA_PIN, cur_bit^1);
       delay(g_time);
     }
+    digitalWrite(DATA_PIN, LOW);
+
     Serial.println(" Done");
 }
 
