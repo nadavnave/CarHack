@@ -16,7 +16,7 @@ data += [0,0]                               #ending    2bit  [50:51]
 
 class CarHacker:
     def __init__(self, comport: str, data=None) -> None:
-        self.s = Serial(comport)
+        self.s = Serial(comport, 115200)
         if data != None:
             self.data = data
 

@@ -14,7 +14,7 @@ char g_data [ DATA_LEN ];
 int g_time = 50;
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(115200);
     while(!Serial){ 
       
     }
@@ -113,15 +113,11 @@ int transmit() {
     g_transmit_flag = 0;
     int cur_bit;
     int i;
-    for(i = 0; i < DATA_LEN - 1; i = i + 1){ 
-      Serial.print("|");
-    
+    for(i = 0; i < DATA_LEN - 1; i = i + 1){     
       cur_bit = get_bit_from_byte(g_data[i],0);
       
-      Serial.print(cur_bit, DEC);
       digitalWrite(DATA_PIN, cur_bit);
       delay(g_time);
-      Serial.print(cur_bit^1, DEC);  
       digitalWrite(DATA_PIN, cur_bit^1);
       delay(g_time);
     }
